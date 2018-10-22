@@ -17,9 +17,9 @@ header {
 .headline {
   position: relative;
   height: 400px;
-  color: #fff;
+  color: #05a9f3;
   text-align: center;
-  background: url('https://farm9.staticflickr.com/8088/8363737128_b76782c7a2_b.jpg') no-repeat center center;
+  background: url('house-cat-header.jpg') no-repeat center center;
   background-size: cover;
   &:after {
     position: absolute;
@@ -125,25 +125,25 @@ nav {
 	padding: 25px 0;
 	font-size: 85%;
 	background-color: #2A2A2A;
-	position: fixed;
-	z-index: -1;
+	// position: fixed;
+	// z-index: -1;
 	left: 0;
 	right: 0;
 	bottom: 0;
 }
 
-#site-content {
-	min-height: 100%;
-	min-height: 100vh;
-	padding-top: 65px;
-	position: relative;
-	z-index: 1;
+// #site-content {
+// 	min-height: 100%;
+// 	min-height: 100vh;
+// 	padding-top: 65px;
+// 	position: relative;
+// 	z-index: 1;
+//
+// 	-webkit-box-shadow: #000 0 7px 35px 0;
+// 	-moz-box-shadow: #000 0 7px 35px 0;
+// 	box-shadow: #000 0 7px 35px 0;
 
-	-webkit-box-shadow: #000 0 7px 35px 0;
-	-moz-box-shadow: #000 0 7px 35px 0;
-	box-shadow: #000 0 7px 35px 0;
-
-}
+// }
 
 @import url(//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css);
 
@@ -152,18 +152,19 @@ html, body {
 	margin: 0;
 	background-color: #D1D1D1;
 }
-#site-content {
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-image: url('http://dummyimage.com/3000x3000/D1D1D1/2A2A2A.png?text=Scroll+Down');
-}
+// #site-content {
+// 	background-size: contain;
+// 	background-position: center;
+// 	background-repeat: no-repeat;
+// 	background-image: url('https://dummyimage.com/3000x3000/e0d7e0/aeb4eb.png&text=ChatFix');
+// }
 
 #site-footer {
-	min-height: 20vw;
+	min-height: 10vw;
 	/* DID THIS SO YOU CAN SEE IT AUTOMATICALLY SCALE - SIMULATION RESPONSIVENESS */
 	/* RESIZE THE WINDOW AND THEN SCROLL VERITCALLY AGAIN */
 	background-size: cover;
 	background-position: center;
-	background-image: url('http://dummyimage.com/1500x1500/2A2A2A/FFF.png?text=Footer+Area+(Resize+Me)');
+	// background-image: url('http://dummyimage.com/1500x1500/2A2A2A/FFF.png?');
+  background-color: #60b5dc;
 }
