@@ -19,16 +19,16 @@
     <nav>
     <div class="logo"></div>
     <ul>
-        <li><a href="#">What We do</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Resources</a></li>
-        <li><a href="#">Sign In</a></li>
+        <li><a href="<%= services_page_path  %>">Services</a></li>
+        <li><a href="<%= resources_page_path  %>">Resources</a></li>
+        <li><a href="<%= about_page_path  %>">What We do</a></li>
+        <li><a href="<%= new_user_session_path %>">Sign In</a></li>
     </ul>
 </nav>
 <header>
     <div class="headline">
         <div class="inner">
-            <h1>Welcome to Houze Cat</h1>
+            <h1><%= link_to 'Welcome to ChatFix', home_page_path %></h1>
             <p>Let us help you save time and money</p>
         </div>
     </div>
