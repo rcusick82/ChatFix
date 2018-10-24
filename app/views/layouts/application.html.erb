@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <title>ChatFix</title>
     <%= csrf_meta_tags %>
@@ -36,7 +36,18 @@
    <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
     <%= yield %>
-    <div id="site-content"></div>
-    <div id="site-footer"></div>
+    <!-- <div id="site-content"></div> -->
+    <footer>
+      <nav class="footer-nav">
+      <div class="logo"></div>
+      <ul>
+          <li><a href="<%= services_page_path  %>">Services</a></li>
+          <li><a href="<%= resources_page_path  %>">Resources</a></li>
+          <li><a href="<%= about_page_path  %>">What We do</a></li>
+          <li><a href="<%= new_user_session_path %>">Sign In</a></li>
+      </ul>
+      </nav>
+    </footer>
+
   </body>
 </html>

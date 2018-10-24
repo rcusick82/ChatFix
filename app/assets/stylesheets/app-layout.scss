@@ -24,7 +24,7 @@ header {
   height: 400px;
   color: #ffffff;
   text-align: center;
-  background: url('hero-header.jpg') no-repeat center center;
+  background: url('chat-hero.jpg') no-repeat center center;
   background-size: cover;
   &:after {
     position: absolute;
@@ -40,7 +40,7 @@ header {
 .inner {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 25%;
   opacity: 0;
   z-index: 10;
   transform: translateX(-50%) translateY(-50%);
@@ -59,7 +59,7 @@ header {
 }
 
 nav {
-  position: fixed;
+  position: relative;
   width: 100%;
   z-index: 10;
   &.scrolled {
@@ -75,7 +75,7 @@ nav {
     float: left;
   }
   a {
-    font-size: 0.9em;
+    font-size: 20px;
     color: #fff;
     text-decoration: none;
     margin: 5px 0 0 20px;
@@ -86,26 +86,26 @@ nav {
   }
 }
 
-.logo {
-  height: 76px;
-  float: left;
-  &:before, &:after {
-    position: absolute;
-    font-size: 7em;
-    font-weight: 300;
-    line-height: 0;
-    color: #fff;
-    top: 25px;
-  }
-  &:before {
-    content: '\00BB';
-    left: 20px;
-  }
-  &:after {
-    content: '\00AB';
-    left: 34px;
-  }
-}
+// .logo {
+//   height: 76px;
+//   float: left;
+//   &:before, &:after {
+//     position: absolute;
+//     font-size: 7em;
+//     font-weight: 300;
+//     line-height: 0;
+//     color: #fff;
+//     top: 25px;
+//   }
+//   &:before {
+//     content: '\00BB';
+//     left: 20px;
+//   }
+//   &:after {
+//     content: '\00AB';
+//     left: 34px;
+//   }
+// }
 
 .home-page-content {
   width: 100%;
@@ -126,16 +126,16 @@ nav {
   }
 }
 
-#site-footer {
-	padding: 25px 0;
-	font-size: 85%;
-	background-color: #2A2A2A;
-	// position: fixed;
-	// z-index: -1;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
+// #site-footer {
+// 	padding: 25px 0;
+// 	font-size: 85%;
+// 	background-color: #2A2A2A;
+// 	// position: fixed;
+// 	// z-index: -1;
+// 	left: 0;
+// 	right: 0;
+// 	bottom: 0;
+// }
 
 // #site-content {
 // 	min-height: 100%;
@@ -164,12 +164,12 @@ html, body {
 // 	background-image: url('https://dummyimage.com/3000x3000/e0d7e0/aeb4eb.png&text=ChatFix');
 // }
 
-#site-footer {
-	min-height: 10vw;
-	/* DID THIS SO YOU CAN SEE IT AUTOMATICALLY SCALE - SIMULATION RESPONSIVENESS */
-	/* RESIZE THE WINDOW AND THEN SCROLL VERITCALLY AGAIN */
-	background-size: cover;
-	background-position: center;
-	// background-image: url('http://dummyimage.com/1500x1500/2A2A2A/FFF.png?');
-  background-color: #60b5dc;
-}
+// #site-footer {
+// 	min-height: 10vw;
+// 	/* DID THIS SO YOU CAN SEE IT AUTOMATICALLY SCALE - SIMULATION RESPONSIVENESS */
+// 	/* RESIZE THE WINDOW AND THEN SCROLL VERITCALLY AGAIN */
+// 	background-size: cover;
+// 	background-position: center;
+// 	// background-image: url('http://dummyimage.com/1500x1500/2A2A2A/FFF.png?');
+//   background-color: #60b5dc;
+// }
