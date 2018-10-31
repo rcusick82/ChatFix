@@ -3,7 +3,7 @@
 <%= @response if @response %>
 
 <%= form_tag(add_conversation_message_path(id: @conversation_id, format: :json), remote: true) do %>
-<%= text_field_tag :input %>
-<%= submit_tag "Send" %>
+<%= text_field_tag  :input, "", class: "message-input" %>
+<%= submit_tag "Send", class: "send-button" %>
 <% end %>
 </div>

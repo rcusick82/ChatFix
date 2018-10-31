@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'conversations#new'
   devise_for :users
-  get 'pages/home'
+  # get 'pages/home'
   get 'conversations/new'
   get 'conversations/:id', to: "conversations#show", as: "conversation"
   post 'conversations/:id/messages', to: "conversations#add_message", as: "add_conversation_message"

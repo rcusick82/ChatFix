@@ -43,8 +43,6 @@ class ConversationsController < ApplicationController
       options: response_options(@response)
     }
 
-
-
     respond_to do |format|
       format.json { render json: formatted_response }
     end
