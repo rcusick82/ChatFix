@@ -1,37 +1,32 @@
 class ConversationsController < ApplicationController
-
   def new
     assistant = IBMWatson::AssistantV1.new(
-      username: ENV["WATSON_USERNAME"],
-      password: ENV["WATSON_PASSWORD"],
-      version: ENV["WATSON_VERSION"]
+      username: ENV['WATSON_USERNAME'],
+      password: ENV['WATSON_PASSWORD'],
+      version: ENV['WATSON_VERSION']
     )
 
     @response = assistant.message(
-      workspace_id: "db296f7b-b013-4e37-a401-4556b04d438b",
+      workspace_id: 'db296f7b-b013-4e37-a401-4556b04d438b',
       input: {
-        "text" => ""
+        'text' => ''
       }
     ).result
-    redirect_to conversation_path(id: @response["context"]["conversation_id"])
-  end
-
-  def show
-    #code
-    @conversation_id = params[:id]
+    # byebug
+    @conversation_id = @response['context']['conversation_id']
   end
 
   def add_message
     assistant = IBMWatson::AssistantV1.new(
-      username: ENV["WATSON_USERNAME"],
-      password: ENV["WATSON_PASSWORD"],
-      version: ENV["WATSON_VERSION"]
+      username: ENV['WATSON_USERNAME'],
+      password: ENV['WATSON_PASSWORD'],
+      version: ENV['WATSON_VERSION']
     )
 
     @response = assistant.message(
-      workspace_id: "db296f7b-b013-4e37-a401-4556b04d438b",
+      workspace_id: 'db296f7b-b013-4e37-a401-4556b04d438b',
       input: {
-        "text" => params[:input]
+        'text' => params[:input]
       },
       context: {
         "conversation_id": params[:id]
@@ -51,9 +46,9 @@ class ConversationsController < ApplicationController
   private
 
   def response_options(response)
-    labels = response["output"]["generic"].map do |g|
-      g["options"].map do |x|
-        x["label"]
+    labels = response['output']['generic'].map do |g|
+      g['options'].map do |x|
+        x['label']
       end
     end
 
@@ -61,8 +56,8 @@ class ConversationsController < ApplicationController
   end
 
   def response_title(response)
-    response["output"]["generic"].map do |t|
-      t["title"]
+    response['output']['generic'].map do |t|
+      t['title']
     end
   end
 end

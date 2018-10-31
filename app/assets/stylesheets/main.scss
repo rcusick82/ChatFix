@@ -38,10 +38,13 @@ footer {
 }
 
 .chat-display {
-  height: 300px;
+  height: 200px;
   width: 400px;
-  background-color: white;
+  background-color: #f1f1f1;
   margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px -1px 2px rgba(52,55,56,1);
+
 }
 
 .message-input {
@@ -56,4 +59,24 @@ footer {
   position: absolute;
   bottom: 0;
   right:0;
+}
+
+.chat-q {
+  // width: 60%;
+  background-color: #39b7e0;
+  border-radius: 10px;
+  color: white;
+  padding-left: 10px;
+  margin: 10px;
+  font-size: 24px;
+}
+
+.chat-o {
+  background-color: #39b7e0;
+  color: white;
+  width: 70px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin: 10px 0 0 30px;
 }

@@ -19,6 +19,7 @@
 $(document).ready(function() {
 
   $(".chat-form").on("ajax:success", function(e, data, status, xhr) {
+
     $(".chat-display").empty()
     var responseObj = JSON.parse(xhr.responseText)
     // console.log(responseObj.title, responseObj.options)
@@ -26,10 +27,10 @@ $(document).ready(function() {
     var question = responseObj.title;
     var options = responseObj.options;
 
-    $(".chat-display").append(`<p>${question}</p>`)
+    $(".chat-display").append(`<div class="chat-q">${question}</div>`)
 
     options.forEach(function(option) {
-      $(".chat-display").append(`<p>${option}</p>`)
+      $(".chat-display").append(`<div class="chat-o">${option}</div>`)
     })
 
   })
