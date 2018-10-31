@@ -31,10 +31,17 @@ footer {
 
 .chat-container {
   width: 400px;
-  height: 600px;
+  // height: 600px;
   margin: 0 auto;
-  background-color: white;
+  // background-color: white;
   position: relative;
+}
+
+.chat-display {
+  height: 300px;
+  width: 400px;
+  background-color: white;
+  margin: 0 auto;
 }
 
 .message-input {

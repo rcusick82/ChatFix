@@ -1,8 +1,17 @@
+<div class="chat-display">
+<!-- </script>$(document).ready ->
+$(".chat-form").on("ajax:success", (e, data, status, xhr) ->
+$(".chat-form").append(.chat - display)xhr.responseText)
+  <script> -->
+
+</div>
+
+
 <div class="chat-container">
 
 <%= @response if @response %>
 
-<%= form_tag(add_conversation_message_path(id: @conversation_id, format: :json), remote: true) do %>
+<%= form_tag(add_conversation_message_path(id: @conversation_id, format: :json), remote: true, class: "chat-form") do %>
 <%= text_field_tag  :input, "", class: "message-input" %>
 <%= submit_tag "Send", class: "send-button" %>
 <% end %>

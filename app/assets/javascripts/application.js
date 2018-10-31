@@ -10,7 +10,27 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+  $(".chat-form").on("ajax:success", function(e, data, status, xhr) {
+    $(".chat-display").empty()
+    var responseObj = JSON.parse(xhr.responseText)
+    // console.log(responseObj.title, responseObj.options)
+
+    var question = responseObj.title;
+    var options = responseObj.options;
+
+    $(".chat-display").append(`<p>${question}</p>`)
+
+    options.forEach(function(option) {
+      $(".chat-display").append(`<p>${option}</p>`)
+    })
+
+  })
+})
