@@ -3,6 +3,9 @@
 $(".chat-form").on("ajax:success", (e, data, status, xhr) ->
 $(".chat-form").append(.chat - display)xhr.responseText)
   <script> -->
+  <p>Welcome Text: <%= @welcome_text if @welcome_text%></p>
+  <p><%= @welcome_title if @welcome_title %></p>
+  <p>WELCOME OPTIONS:<%= @welcome_options %> </p>
   <%= @response if @response %>
 
 </div>

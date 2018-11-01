@@ -12,8 +12,14 @@ class ConversationsController < ApplicationController
         'text' => ''
       }
     ).result
-    # byebug
+
     @conversation_id = @response['context']['conversation_id']
+
+    @welcome_text = @response['output']['generic'][0]['text']
+    @welcome_title = @response['output']['generic'][1]['title']
+    @welcome_options = @response['output']['generic'][1]['options'].map do |o|
+      o['label']
+    end
   end
 
   def add_message
