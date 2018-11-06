@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get 'pages/home'
   get 'conversations/new'
   get 'conversations/:id', to: 'conversations#show', as: 'conversation'
-  post 'conversations/:id/messages', to: 'conversations#add_message', as: 'add_conversation_message'
+  post 'conversations/add_message', to: 'conversations#add_message', as: 'add_conversation_message'
   # resources :messages, only: [:create, :new]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

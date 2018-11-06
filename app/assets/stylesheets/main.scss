@@ -70,7 +70,12 @@ footer {
   margin: 10px;
   font-size: 24px;
 }
+.welcome {
+  background-color: #b8a0d0;
+  border-radius: 10px;
+  text-align: center;
 
+}
 .chat-o {
   background-color: #39b7e0;
   color: white;
@@ -79,4 +84,8 @@ footer {
   padding: 10px 10px;
   border-radius: 10px;
   margin: 10px 0 0 30px;
+}
+
+.inline-block {
+  display: inline-block;
 }

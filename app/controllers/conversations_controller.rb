@@ -14,6 +14,8 @@ class ConversationsController < ApplicationController
     ).result
 
     @conversation_id = @response['context']['conversation_id']
+    @system = @response['context']['system']
+    @context = @response['context']
 
     @welcome_text = @response['output']['generic'][0]['text']
     @welcome_title = @response['output']['generic'][1]['title']
@@ -36,16 +38,12 @@ class ConversationsController < ApplicationController
       },
       context: {
         "conversation_id": params[:id]
+
       }
     ).result
 
-    formatted_response = {
-      title: response_title(@response),
-      options: response_options(@response)
-    }
-
     respond_to do |format|
-      format.json { render json: formatted_response }
+      format.json { render json: @response }
     end
   end
 
