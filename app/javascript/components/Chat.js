@@ -9,35 +9,22 @@ class Chat extends React.Component {
       chatItems: [
         "test1", "this is a dumb test"
       ],
-      watsonData: props.watsonData,
-      conversation_id: props.watsonData.context.conversation_id
+      watsonData: props.watsonData
     }
     this.sendMessage = this.sendMessage.bind(this)
   }
 
   sendMessage(input) {
-    console.log('test start', input)
-    input.conversation_id = this.state.conversation_id
-    input.system = this.state.system
-    console.log('test added', input)
-    input = JSON.stringify(input)
+    let payload = {
+      input: input,
+      context: {
+        conversation_id: this.state.watsonData.context.conversation_id,
+        system: this.state.watsonData.context.system
+      }
+    }
 
-    $.post("/conversations/add_message", {
-      //  "context": {
-      //     "conversation_id": "d85538fc-6c32-475a-b289-91ccd7fccc02",
-      //     "system": {
-      //         "dialog_stack": [
-      //             "root"
-      //         ],
-      //         "dialog_turn_counter": 1,
-      //         "dialog_request_counter": 1
-      //     }
-      // }
+    $.post("/conversations/add_message", payload, response => {
 
-      input
-    }, response => {
-      // here,
-      // you want setState and update the chatItems
       console.log('response', response)
       this.setState({watsonData: response})
 

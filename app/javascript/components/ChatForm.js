@@ -12,7 +12,7 @@ class ChatForm extends React.Component {
   }
 
   handleSubmit() {
-    this.props.sendMessage({input: this.state.inputText})
+    this.props.sendMessage({text: this.state.inputText})
   }
 
   render() {

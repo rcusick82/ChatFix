@@ -31,15 +31,15 @@ class ConversationsController < ApplicationController
       version: ENV['WATSON_VERSION']
     )
 
-    @response = assistant.message(
+    data_for_watson = {
       workspace_id: 'db296f7b-b013-4e37-a401-4556b04d438b',
-      input: {
-        'text' => params[:input]
-      },
-      context: {
-        "conversation_id": params[:id]
+      input: params[:input],
+      context: params[:context]
+    }
+    data_for_watson[:context][:system][:dialog_stack] = data_for_watson[:context][:system][:dialog_stack].values
 
-      }
+    @response = assistant.message(
+      data_for_watson
     ).result
 
     respond_to do |format|
