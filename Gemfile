@@ -12,6 +12,11 @@ gem 'react-rails'
 
 gem 'twilio-ruby'
 
+
+gem 'jquery-rails'
+
+gem 'faker'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

@@ -94,6 +94,8 @@ GEM
     erubi (1.7.1)
     eventmachine (1.2.7)
     execjs (2.7.0)
+    faker (1.9.1)
+      i18n (>= 0.7)
     faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
     faye-websocket (0.10.7)
@@ -269,6 +271,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  faker
   ibm_watson
   jbuilder (~> 2.5)
   jquery-rails

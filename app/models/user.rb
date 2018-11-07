@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :messages
+
+  has_many :user_locations
+
+  has_many :locations, through: :user_locations
 end
