@@ -20,7 +20,7 @@ class ChatForm extends React.Component {
       <input type="text" value={this.state.inputText} onChange={(event) => {
           this.setState({inputText: event.target.value})
         }}/>
-      <input type="submit" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={this.handleSubmit}/>
+      <input type="submit" className="btn btn-primary" onClick={this.handleSubmit}/>
     </div>);
   }
 }

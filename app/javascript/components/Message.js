@@ -4,12 +4,13 @@ import Option from './Option'
 
 class Messages extends React.Component {
   render() {
+    let generic = this.props.watsonData.output.generic
     let options
 
-    if (this.props.watsonData.output.generic[1]) {
-      options = this.props.watsonData.output.generic[1].options.map((option, index) => <Option key={index} option={option}/>)
-    } else {
-      options = this.props.watsonData.output.generic[0].options.map((option, index) => <Option key={index} option={option}/>)
+    if (generic.length > 1) {
+      options = generic[1].options.map((option, index) => <Option key={index} option={option}/>)
+    } else if (generic.length > 0 && generic[0].response_type == "option") {
+      options = generic[0].options.map((option, index) => <Option key={index} option={option}/>)
     }
     return (<div>
       {

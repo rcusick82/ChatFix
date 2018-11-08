@@ -11,7 +11,9 @@ class Chat extends React.Component {
     }
     this.sendMessage = this.sendMessage.bind(this)
   }
-
+  launchModal() {
+    $('#twilioModal').modal()
+  }
   sendMessage(input) {
     let payload = {
       input: input,
@@ -24,6 +26,9 @@ class Chat extends React.Component {
     $.post("/conversations/add_message", payload, response => {
 
       let dialog_node = this.state.watsonData.context.system.dialog_stack[0].dialog_node
+
+      if (dialog_node.startsWith("node_6") && input.text == "yes") 
+        this.launchModal()
 
       console.log('node', dialog_node)
       console.log('response', response)
