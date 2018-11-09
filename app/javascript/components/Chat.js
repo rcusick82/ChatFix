@@ -6,13 +6,25 @@ class Chat extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      chatItems: [],
+      chatItems: ["What room has the plumbing issue?"],
       watsonData: props.watsonData
     }
     this.sendMessage = this.sendMessage.bind(this)
   }
   launchModal() {
     $('#twilioModal').modal()
+  }
+
+  loadUserInfo(input) {
+    let userInput = {
+      phone_number: input,
+      zip_code: input
+    }
+    $.post("/conversations/generate_message", userInput, response => {
+
+      console.log('WHAT', response);
+    })
+
   }
   sendMessage(input) {
     let payload = {
@@ -22,19 +34,19 @@ class Chat extends React.Component {
         system: this.state.watsonData.context.system
       }
     }
-
     $.post("/conversations/add_message", payload, response => {
 
       let dialog_node = this.state.watsonData.context.system.dialog_stack[0].dialog_node
 
-      if (dialog_node.startsWith("node_6") && input.text == "yes") 
+      if (dialog_node.startsWith("node") && input.text == "yes") {
+        $('#chat_items').val(JSON.stringify(this.state.chatItems))
         this.launchModal()
+      }
 
       console.log('node', dialog_node)
       console.log('response', response)
       this.setState({watsonData: response})
       this.state.chatItems.push(this.state.watsonData.input.text, this.state.watsonData.output.generic[0].title)
-
     })
 
   }
@@ -43,12 +55,9 @@ class Chat extends React.Component {
     console.log('this is what watson is', this.state.watsonData)
     console.log('chatItems', this.state.chatItems)
 
-    let chatItems = this.state.chatItems.map((item, index) => {
-      return (<div key={index}>{item}</div>)
-    })
     return (<div>
       <Message watsonData={this.state.watsonData}/>
-      <ChatForm sendMessage={this.sendMessage}/>{chatItems}
+      <ChatForm sendMessage={this.sendMessage}/>
     </div>);
   }
 }

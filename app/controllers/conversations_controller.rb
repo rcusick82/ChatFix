@@ -1,4 +1,11 @@
 class ConversationsController < ApplicationController
+  #
+  def generate_sms
+    dialog = JSON.parse(params[:chat_items]).compact
+    numbers = Location.find_by_zip_code(params[:zip_code]).users.pluck(:Phone_Number)
+    fire_twilio(numbers, dialog)
+  end
+
   def new
     assistant = IBMWatson::AssistantV1.new(
       username: ENV['WATSON_USERNAME'],
@@ -47,21 +54,17 @@ class ConversationsController < ApplicationController
     end
   end
 
+
   private
 
-  def response_options(response)
-    labels = response['output']['generic'].map do |g|
-      g['options'].map do |x|
-        x['label']
-      end
-    end
-
-    labels.flatten
-  end
-
-  def response_title(response)
-    response['output']['generic'].map do |t|
-      t['title']
+  def fire_twilio(numbers, dialog)
+    client = Twilio::REST::Client.new
+    numbers.each do |number|
+      client.messages.create({
+        from: Rails.application.credentials.twilio[:number],
+        to: number,
+        body: "Hey Plumber! 🚽 Can you help with this issue?" + dialog.join("\n")
+      })
     end
   end
 end
