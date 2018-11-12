@@ -17,7 +17,7 @@ User.create(
   email: Faker::Internet.email,
   password: 'password1',
   vendor: true,
-  Phone_Number: '18645675685'
+  phone_number: '18644975177'
 )
 User.create(
   name: Faker::Name.name,
@@ -25,7 +25,7 @@ User.create(
   email: Faker::Internet.email,
   password: 'password1',
   vendor: true,
-  Phone_Number: '18432511462'
+  phone_number: '18645612826'
 )
 User.create(
   name: Faker::Name.name,
@@ -33,7 +33,7 @@ User.create(
   email: Faker::Internet.email,
   password: 'password1',
   vendor: true,
-  Phone_Number: '18434650504'
+  phone_number: '18649017949'
 )
 User.create(
   name: Faker::Name.name,
@@ -41,7 +41,7 @@ User.create(
   email: Faker::Internet.email,
   password: 'password1',
   vendor: true,
-  Phone_Number: '18642701430'
+  phone_number: '17047289266'
 )
 User.create(
   name: Faker::Name.name,
@@ -49,7 +49,7 @@ User.create(
   email: Faker::Internet.email,
   password: 'password1',
   vendor: true,
-  Phone_Number: '18649017949'
+  phone_number: '18645675685'
 )
 User.create(
   name: Faker::Name.name,
@@ -57,7 +57,7 @@ User.create(
   email: Faker::Internet.email,
   password: 'password1',
   vendor: true,
-  Phone_Number: '17047289266'
+  phone_number: '18643137594'
 )
 
 User.all.each do |user|

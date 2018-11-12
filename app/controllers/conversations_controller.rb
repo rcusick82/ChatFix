@@ -1,9 +1,20 @@
 class ConversationsController < ApplicationController
-  #
+  skip_before_action :verify_authenticity_token, only: [:receive]
   def generate_sms
     dialog = JSON.parse(params[:chat_items]).compact
-    numbers = Location.find_by_zip_code(params[:zip_code]).users.pluck(:Phone_Number)
-    fire_twilio(numbers, dialog)
+    numbers = Location.find_by_zip_code(params[:zip_code]).users.pluck(:phone_number)
+    broadcast_to_plumbers(numbers, dialog)
+    requestor = Requestor.find_or_create_by(phone_number: params[:phone_number])
+    service_request = ServiceRequest.new
+    service_request.requestor = requestor
+    service_request.users = Location.find_by_zip_code(params[:zip_code]).users
+    service_request.save
+  end
+
+  def receive
+    vendor = User.find_by_phone_number(params["From"].gsub("+",""))
+    to = vendor.service_requests.last.requestor
+    twilio_sms_proxy(to.phone_number, params["Body"])
   end
 
   def new
@@ -54,17 +65,24 @@ class ConversationsController < ApplicationController
     end
   end
 
-
   private
 
-  def fire_twilio(numbers, dialog)
+  def broadcast_to_plumbers(numbers, dialog)
     client = Twilio::REST::Client.new
     numbers.each do |number|
-      client.messages.create({
+      client.messages.create(
         from: Rails.application.credentials.twilio[:number],
         to: number,
-        body: "Hey Plumber! 🚽 Can you help with this issue?" + dialog.join("\n")
-      })
+        body: 'Hey Plumber! 🚽 Can you help with this issue?' + dialog.join("\n") +" Please respond with available times and minimum service fees"
+      )
     end
+  end
+  def twilio_sms_proxy(number, body)
+    client = Twilio::REST::Client.new
+      client.messages.create(
+        from: Rails.application.credentials.twilio[:number],
+        to: number,
+        body: body
+      )
   end
 end

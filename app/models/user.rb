@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :user_locations
 
   has_many :locations, through: :user_locations
+
+  has_many :service_request_users
+  has_many :service_requests, through: :service_request_users
+
+  has_many :requestors, through: :service_requests
 end
