@@ -11,11 +11,27 @@ body {
 }
 
 .body-container {
-  height: 1000px;
+  height: 700px;
 }
 
 .relative {
   position: relative;
+}
+
+// .welcome-container {
+//   height: 600px;
+//   width: 800px;
+//   background-color: #0094bd;
+// }
+
+.modal-image  {
+  background-image: url(chatbot1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 250px;
+  margin: auto;
+  border-radius: 25px;
 }
 
 .chat-input {
@@ -28,12 +44,24 @@ body {
   padding: 30px;
   overflow: scroll;
   margin-left: 10px;
-  height: 600px;
+  height: 645px;
 }
 
 .margin-left {
   margin-left: 90px
 }
+
+.modal-content {
+  background-color: #7F96FF;
+  width: 600px;
+  height: 600px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.modal-title {
+  font-size: 24px;
+}
+
 
 .speech-bubble {
   float: left;
@@ -61,14 +89,40 @@ body {
 	margin-left: -18px;
 }
 
+.user-speech-bubble:before {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 18px solid transparent;
+	border-right-color: #0094bd;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -10px;
+	margin-left: -20px;
+}
+
 .user-speech-bubble {
-  background: green;
+  background: #7BBEE5;
   float: right;
 }
 
 .user-speech-bubble:after {
 	right: 0;
-	border-right-color: green;
+	border-right-color: #7BBEE5;
+}
+
+.chatbot {
+  background-image: url(chatbot1.png);
+  height: 25px;
+  width: 25px;
+}
+
+.chatfix-logo {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
 }
 
 .left-side {
@@ -78,14 +132,38 @@ body {
   background-color: #f6f9fb;
 }
 .image-pane-container {
-  background-image: url('bathroom-hero.jpg');
-  background-size: cover;
+  background-color: #6963CC;
   width: 30%;
   height: 100%;
   float: right;
   display: inline-block;
+  position: relative;
   // display: flex;
   // flex-direction: column;
+}
+
+.main-nav-list {
+  position: absolute;
+  top: 10%;
+  left: 35%;
+}
+
+.main-nav-title {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  font-size: 30px;
+}
+
+.main-nav-item  a{
+  color: #fff;
+  line-height: 65px;
+  letter-spacing: 1.5px;
+  font-size: 22px;
+}
+
+.input-text-field {
+  width: 400px;
 }
 
 .shadow {
@@ -102,9 +180,10 @@ body {
 }
 
 .watson-options {
-  font-size: 14px;
+  font-size: 15px;
   padding-right: 20px;
   font-weight: bold;
+  color: #A5D8FF;
 }
 
 .bg-color {

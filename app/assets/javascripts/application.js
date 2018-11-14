@@ -19,6 +19,14 @@
 
 $(document).ready(function() {
 
+  // $('#welcomeModal').load('new', function() {
+  //   $('#welcomeModal').show('show')
+  // })
+
+  $(window).load(function() {
+    $('#welcomeModal').modal('show');
+  });
+
   $(".chat-form").on("ajax:success", function(e, data, status, xhr) {
 
     $(".chat-display").empty()
