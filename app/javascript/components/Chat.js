@@ -7,7 +7,8 @@ class Chat extends React.Component {
     super(props)
     this.state = {
       chatItems: ["What room has the plumbing issue?"],
-      watsonData: props.watsonData
+      watsonData: props.watsonData,
+      watsonDataLog: [props.watsonData]
     }
     this.sendMessage = this.sendMessage.bind(this)
   }
@@ -46,6 +47,13 @@ class Chat extends React.Component {
       console.log('node', dialog_node)
       console.log('response', response)
       this.setState({watsonData: response})
+      this.setState({
+        watsonDataLog: [
+          ...this.state.watsonDataLog,
+          this.state.watsonData.input.text,
+          response
+        ]
+      })
       this.state.chatItems.push(this.state.watsonData.input.text, this.state.watsonData.output.generic[0].title)
     })
 
@@ -55,8 +63,17 @@ class Chat extends React.Component {
     console.log('this is what watson is', this.state.watsonData)
     console.log('chatItems', this.state.chatItems)
 
-    return (<div>
-      <Message watsonData={this.state.watsonData}/>
+    return (<div className="relative">
+      <div className="conversation-container clearfix">
+        {
+          this.state.watsonDataLog.map((item, index) => {
+            return (
+              typeof item == "string"
+              ? <div className="speech-bubble user-speech-bubble clearfix">{item}</div>
+              : <Message key={index} watsonData={item}/>)
+          })
+        }
+      </div>
       <ChatForm sendMessage={this.sendMessage}/>
     </div>);
   }

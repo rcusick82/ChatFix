@@ -1,96 +1,112 @@
-.card-container {
-  width: 1300px;
-  // width: 100%;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+  width: 100%;
+}
+.chat-container{
   margin: 0 auto;
+  height: 600px;
+  width: 800px;
+  margin-left: 100px;
 }
 
-.content-card {
-  box-shadow: 0 0 10px 4px rgba(0,0,0,0.75);
-  width: 300px;
-  display: inline-block;
-  margin: 60px;
-  padding-left: 3px;
-  padding-right: 3px;
+.body-container {
+  height: 1000px;
 }
 
-.content-card .card-title  {
-  text-align: center;
-}
-
-.subheader {
-  text-align: center;
-  color: #60b5dc;
-  font-size: 50px;
-}
-
-footer {
-  height: 100px;
-  background-color: #60b5dc;
-  // z-index: 10;
-}
-
-.chat-container {
-  width: 400px;
-  // height: 600px;
-  margin: 0 auto;
-  // background-color: white;
+.relative {
   position: relative;
 }
 
-.chat-display {
-  height: 200px;
-  width: 400px;
-  background-color: #f1f1f1;
-  margin: 0 auto;
-  border-radius: 10px;
-  box-shadow: 0px 0px -1px 2px rgba(52,55,56,1);
+.chat-input {
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
 
+.conversation-container {
+  padding: 30px;
+  overflow: scroll;
+  margin-left: 10px;
+  height: 600px;
+}
+
+.margin-left {
+  margin-left: 90px
+}
+
+.speech-bubble {
+  float: left;
+  color: white;
+	position: relative;
+	background: #0094bd;
+	border-radius: .4em;
+  width: 500px;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 18px solid transparent;
+	border-right-color: #0094bd;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -9px;
+	margin-left: -18px;
+}
+
+.user-speech-bubble {
+  background: green;
+  float: right;
+}
+
+.user-speech-bubble:after {
+	right: 0;
+	border-right-color: green;
+}
+
+.left-side {
+  width: 70%;
+  height: 100%;
+  display: inline-block;
+  background-color: #f6f9fb;
+}
+.image-pane-container {
+  background-image: url('bathroom-hero.jpg');
+  background-size: cover;
+  width: 30%;
+  height: 100%;
+  float: right;
+  display: inline-block;
+  // display: flex;
+  // flex-direction: column;
+}
+
+.shadow {
+  box-shadow: inset 0px 0px 10px 0px rgba(128,135,135,1);
+}
+
+.welcome-text {
+  font-size: 14px;
+}
+
+.watson-question {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .watson-options {
-  font-size: 18px;
-  color: #60b5dc;
+  font-size: 14px;
+  padding-right: 20px;
+  font-weight: bold;
 }
 
-.message-input {
-  width: 80%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.send-button {
-  width: 20%;
-  position: absolute;
-  bottom: 0;
-  right:0;
-}
-
-.chat-q {
-  // width: 60%;
-  background-color: #39b7e0;
-  border-radius: 10px;
-  color: white;
-  padding-left: 10px;
-  margin: 10px;
-  font-size: 24px;
-}
-.welcome {
-  background-color: #b8a0d0;
-  border-radius: 10px;
-  text-align: center;
-
-}
-.chat-o {
-  background-color: #39b7e0;
-  color: white;
-  width: 70px;
-  margin: 0 auto;
-  padding: 10px 10px;
-  border-radius: 10px;
-  margin: 10px 0 0 30px;
-}
-
-.inline-block {
-  display: inline-block;
+.bg-color {
+  background-color: #f6f9fb;
 }

@@ -5,47 +5,84 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
-
   <body>
+    <!-- <nav> <div class="logo"></div> <ul> <li><a href="<%= services_page_path %>">Services</a></li> <li><a href="<%= resources_page_path %>">Resources</a></li> <li><a href="<%= about_page_path %>">What We do</a></li> <li><a href="<%=
+    new_user_session_path %>">Sign In</a></li> </ul> </nav> -->
+    <!-- <header> <div class="headline"> <div class="inner"> <h1 class="header-title"><%= link_to 'Welcome to ChatFix', conversations_new_path %></h1> <!-- <p class="p-title">Get access to multiple local vendors with the click of a button!</p> -->
+    <!-- <p class="p-title">Don't waste time leaving messages hoping someone will call you back, let us do the work of contacting professionals for you.</p> </div> -->
+    <!-- </div> </header> -->
+    <!-- <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p> -->
+    <section class="body-container">
+      <div class="left-side">
 
-    <nav>
-    <div class="logo"></div>
-    <ul>
-        <li><a href="<%= services_page_path  %>">Services</a></li>
-        <li><a href="<%= resources_page_path  %>">Resources</a></li>
-        <li><a href="<%= about_page_path  %>">What We do</a></li>
-        <li><a href="<%= new_user_session_path %>">Sign In</a></li>
-    </ul>
-</nav>
-<header>
-    <div class="headline">
-        <div class="inner">
-            <h1 class="header-title"><%= link_to 'Welcome to ChatFix', conversations_new_path %></h1>
-            <p class="p-title">Get access to multiple local vendors with the click of a button!</p>
-            <p class="p-title">Don't waste time leaving messages hoping someone will call you back, let us do the work of contacting professionals for you.</p>
-        </div>
-    </div>
-</header>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <!-- <div id="site-content"></div> -->
-    <footer>
-      <nav class="footer-nav">
-      <div class="logo"></div>
-      <ul>
-          <li><a href="<%= services_page_path  %>">Services</a></li>
-          <li><a href="<%= resources_page_path  %>">Resources</a></li>
-          <li><a href="<%= about_page_path  %>">What We do</a></li>
-          <li><a href="<%= new_user_session_path %>">Sign In</a></li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-color ">
+    <a class="navbar-brand" href="#">ChatFix</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= conversations_new_path %>">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= about_page_path  %>">What We Do</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= services_page_path  %>">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= resources_page_path  %>">Resources</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li> -->
       </ul>
-      </nav>
-    </footer>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+        <%= yield %>
+</div>
+        <!-- <ul class="nav float-right">
+          <li class="nav-item">
+            <a class="nav-link active" href="<%= services_page_path  %>">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= resources_page_path  %>">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<<%= about_page_path  %>">What We Do</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="<%= new_user_session_path %>">Login</a>
+          </li>
+        </ul> -->
+
+
+      <div class="image-pane-container shadow"></div>
+    </section>
+    <!-- <div id="site-content"></div> -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>

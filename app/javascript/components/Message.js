@@ -12,7 +12,7 @@ class Messages extends React.Component {
     } else if (generic.length > 0 && generic[0].response_type == "option") {
       options = generic[0].options.map((option, index) => <Option key={index} option={option}/>)
     }
-    return (<div className="jumbotron">
+    return (<div className="speech-bubble clearfix">
       {
         this.props.watsonData.output.generic[1]
           ? <div>
@@ -21,7 +21,8 @@ class Messages extends React.Component {
               {options}
             </div>
           : <div>
-              <p className="watson-options">{this.props.watsonData.output.generic[0].title}</p>{options}</div>
+              <h3 className="watson-question">{this.props.watsonData.output.generic[0].title}</h3>{options}
+            </div>
       }
 
     </div>)
