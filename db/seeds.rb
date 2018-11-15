@@ -59,7 +59,7 @@ User.create(
 #   vendor: true,
 #   phone_number: '18643137594'
 # )
-#
+
 User.all.each do |user|
   10.times do
     location = Location.all.sample

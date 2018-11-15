@@ -16,13 +16,11 @@ class Messages extends React.Component {
       {
         this.props.watsonData.output.generic[1]
           ? <div>
-              <div className="chatbot"></div>
               <h2 className="welcome-text">{this.props.watsonData.output.generic[0].text}</h2>
               <h3 className="watson-question">{this.props.watsonData.output.generic[1].title}</h3>
               {options}
             </div>
           : <div>
-              <div className="chatbot"></div>
 
               <h3 className="watson-question">{this.props.watsonData.output.generic[0].title}</h3>{options}
             </div>
