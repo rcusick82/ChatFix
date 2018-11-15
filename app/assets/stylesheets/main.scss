@@ -1,169 +1,191 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif;
-  color: #333;
+  width: 100%;
+}
+.chat-container{
+  margin: 0 auto;
+  height: 600px;
+  width: 800px;
+  margin-left: 100px;
 }
 
-header {
-  background: #111;
+.body-container {
+  height: 700px;
 }
 
-.headline {
+.relative {
   position: relative;
-  height: 400px;
-  color: #fff;
-  text-align: center;
-  background: url('https://farm9.staticflickr.com/8088/8363737128_b76782c7a2_b.jpg') no-repeat center center;
+}
+
+// .welcome-container {
+//   height: 600px;
+//   width: 800px;
+//   background-color: #0094bd;
+// }
+
+.modal-image  {
+  background-image: url(chatbot1.png);
   background-size: cover;
-  &:after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(#111, 0.5);
-  }
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 250px;
+  margin: auto;
+  border-radius: 25px;
 }
 
-.inner {
+.chat-input {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
-  z-index: 10;
-  transform: translateX(-50%) translateY(-50%);
-  animation: fade-in 0.75s 0.25s ease-in forwards;
-  h1 {
-    margin: 0;
-    font-size: 4em;
-    line-height: 1.2em;
-  }
-  p {
-    margin: 0;
-    font-size: 1.4em;
-    font-style: italic;
-    font-family: serif;
-  }
+  bottom: 0;
+  left: 50px;
 }
 
-nav {
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-  &.scrolled {
-    background: rgba(#111, 0.9);
-  }
-  ul {
-    float: right;
-    list-style: none;
-    padding: 25px;
-    margin: 0;
-  }
-  li {
-    float: left;
-  }
-  a {
-    font-size: 0.9em;
-    color: #fff;
-    text-decoration: none;
-    margin: 5px 0 0 20px;
-    display: block;
-    &:hover {
-      color: darken(#fff, 7%);
-    }
-  }
+.conversation-container {
+  padding: 30px;
+  overflow: scroll;
+  margin-left: 10px;
+  height: 645px;
 }
 
-.logo {
-  height: 76px;
+.margin-left {
+  margin-left: 90px
+}
+
+.modal-content {
+  background-color: #7F96FF;
+  width: 600px;
+  height: 600px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.modal-title {
+  font-size: 24px;
+}
+
+
+.speech-bubble {
   float: left;
-  &:before, &:after {
-    position: absolute;
-    font-size: 7em;
-    font-weight: 300;
-    line-height: 0;
-    color: #fff;
-    top: 25px;
-  }
-  &:before {
-    content: '\00BB';
-    left: 20px;
-  }
-  &:after {
-    content: '\00AB';
-    left: 34px;
-  }
-}
-
-.home-page-content {
-  width: 100%;
-  margin: 25px auto;
-  padding: 20px;
-  max-width: 800px;
-  font-size: 1.2em;
-  line-height: 1.6em;
-  box-sizing: border-box;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-#site-footer {
-	padding: 25px 0;
-	font-size: 85%;
-	background-color: #2A2A2A;
-	position: fixed;
-	z-index: -1;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
-
-#site-content {
-	min-height: 100%;
-	min-height: 100vh;
-	padding-top: 65px;
+  color: white;
 	position: relative;
-	z-index: 1;
-
-	-webkit-box-shadow: #000 0 7px 35px 0;
-	-moz-box-shadow: #000 0 7px 35px 0;
-	box-shadow: #000 0 7px 35px 0;
-
+	background: #0094bd;
+	border-radius: .4em;
+  width: 500px;
+  margin-bottom: 30px;
+  padding: 20px;
 }
 
-@import url(//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css);
-
-html, body {
-	padding: 0;
-	margin: 0;
-	background-color: #D1D1D1;
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 18px solid transparent;
+	border-right-color: #0094bd;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -9px;
+	margin-left: -18px;
 }
-#site-content {
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-image: url('http://dummyimage.com/3000x3000/D1D1D1/2A2A2A.png?text=Scroll+Down');
+
+.user-speech-bubble:before {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 18px solid transparent;
+	border-right-color: #0094bd;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -10px;
+	margin-left: -20px;
 }
 
-#site-footer {
-	min-height: 20vw;
-	/* DID THIS SO YOU CAN SEE IT AUTOMATICALLY SCALE - SIMULATION RESPONSIVENESS */
-	/* RESIZE THE WINDOW AND THEN SCROLL VERITCALLY AGAIN */
-	background-size: cover;
-	background-position: center;
-	background-image: url('http://dummyimage.com/1500x1500/2A2A2A/FFF.png?text=Footer+Area+(Resize+Me)');
+.user-speech-bubble {
+  background: #7BBEE5;
+  float: right;
+}
+
+.user-speech-bubble:after {
+	right: 0;
+	border-right-color: #7BBEE5;
+}
+
+.chatbot {
+  background-image: url(chatbot1.png);
+  height: 25px;
+  width: 25px;
+}
+
+.chatfix-logo {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+}
+
+.left-side {
+  width: 70%;
+  height: 100%;
+  display: inline-block;
+  background-color: #f6f9fb;
+}
+.image-pane-container {
+  background-color: #6963CC;
+  width: 30%;
+  height: 100%;
+  float: right;
+  display: inline-block;
+  position: relative;
+  // display: flex;
+  // flex-direction: column;
+}
+
+.main-nav-list {
+  position: absolute;
+  top: 10%;
+  left: 35%;
+}
+
+.main-nav-title {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  font-size: 30px;
+}
+
+.main-nav-item  a{
+  color: #fff;
+  line-height: 65px;
+  letter-spacing: 1.5px;
+  font-size: 22px;
+}
+
+.input-text-field {
+  width: 400px;
+}
+
+.shadow {
+  box-shadow: inset 0px 0px 10px 0px rgba(128,135,135,1);
+}
+
+.welcome-text {
+  font-size: 14px;
+}
+
+.watson-question {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.watson-options {
+  font-size: 15px;
+  padding-right: 20px;
+  font-weight: bold;
+  color: #A5D8FF;
+}
+
+.bg-color {
+  background-color: #f6f9fb;
 }

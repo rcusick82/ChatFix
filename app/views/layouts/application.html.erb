@@ -1,41 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <title>ChatFix</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <%= javascript_pack_tag 'application' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet"
   </head>
-
   <body>
+    <section class="body-container">
+      <div class="left-side">
+  <div class="chatfix-logo">
+    ChatFix
+  </div>
 
-    <nav>
-    <div class="logo"></div>
-    <ul>
-        <li><a href="#">What We do</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Resources</a></li>
-        <li><a href="#">Sign In</a></li>
-    </ul>
-</nav>
-<header>
-    <div class="headline">
-        <div class="inner">
-            <h1>Welcome to ChatFix</h1>
-            <p>Let us help you save time and money</p>
-        </div>
+
+        <%= yield %>
+</div>
+
+
+      <div class="image-pane-container shadow">
+        <nav class="flex-column">
+    <a class="main-nav-title" href="#">ChatFix</a>
+
+    <div class="main-nav">
+      <ul class="flex-column main-nav-list">
+        <li class="list-unstyled main-nav-item">
+          <a href="<%= conversations_new_path %>">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="list-unstyled main-nav-item">
+          <a href="<%= about_page_path  %>">What We Do</a>
+        </li>
+        <li class="list-unstyled main-nav-item">
+          <a href="<%= services_page_path  %>">Services</a>
+        </li>
+        <li class="list-unstyled main-nav-item">
+          <a href="<%= resources_page_path  %>">Resources</a>
+        </li>
+
+      </ul>
+
     </div>
-</header>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <div id="site-content"></div>
-    <div id="site-footer"></div>
+  </nav>
+      </div>
+    </section>
+    <!-- <div id="site-content"></div> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
