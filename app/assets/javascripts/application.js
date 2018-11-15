@@ -23,6 +23,15 @@ $(document).ready(function() {
   //   $('#welcomeModal').show('show')
   // })
 
+  var height = 0;
+  $('conversation-container').each(function(i, value) {
+    height += parseInt($(this).height());
+  });
+
+  height += '';
+
+  $('conversation-container').animate({scrollTop: height});
+
   $(window).load(function() {
     $('#welcomeModal').modal('show');
   });
