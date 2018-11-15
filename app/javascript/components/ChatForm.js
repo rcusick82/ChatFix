@@ -16,7 +16,7 @@ class ChatForm extends React.Component {
   }
 
   render() {
-    return (<div className="clearfix margin-left chat-input">
+    return (<div className="clearfix chat-input">
       <input className="input-text-field" type="text" value={this.state.inputText} onChange={(event) => {
           this.setState({inputText: event.target.value})
         }}/> {/* <div class="input-group input-group-lg">

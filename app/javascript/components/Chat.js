@@ -59,18 +59,30 @@ class Chat extends React.Component {
 
   }
 
+  componentDidMount() {
+    $('.last-item').addClass('active')
+  }
+
+  componentDidUpdate() {
+    setTimeout(function() {
+      $('.last-item').addClass('active')
+    }, 600)
+    var objDiv = document.getElementById("conversation-container");
+    objDiv.scrollTop = 9000;
+  }
+
   render() {
     console.log('this is what watson is', this.state.watsonData)
     console.log('chatItems', this.state.chatItems)
 
     return (<div className="relative">
-      <div className="conversation-container clearfix">
+      <div className="conversation-container clearfix" id="conversation-container">
         {
           this.state.watsonDataLog.map((item, index) => {
             return (
               typeof item == "string"
               ? <div className="speech-bubble user-speech-bubble clearfix">{item}</div>
-              : <Message key={index} watsonData={item}/>)
+              : <Message key={index} watsonData={item} isLast={this.state.watsonDataLog.length - 1 === index}/>)
           })
         }
       </div>

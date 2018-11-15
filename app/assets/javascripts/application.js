@@ -23,14 +23,16 @@ $(document).ready(function() {
   //   $('#welcomeModal').show('show')
   // })
 
-  var height = 0;
-  $('conversation-container').each(function(i, value) {
-    height += parseInt($(this).height());
-  });
+  $(document).scrollTop($(document).height());
 
-  height += '';
-
-  $('conversation-container').animate({scrollTop: height});
+  // var height = 0;
+  // $('conversation-container').each(function(i, value) {
+  //   height += parseInt($(this).height());
+  // });
+  //
+  // height += '';
+  //
+  // $('conversation-container').animate({scrollTop: height});
 
   $(window).load(function() {
     $('#welcomeModal').modal('show');
