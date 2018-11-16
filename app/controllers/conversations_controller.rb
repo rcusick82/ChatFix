@@ -12,21 +12,22 @@ class ConversationsController < ApplicationController
   end
 
   def receive
-    if params["Body"].include?("cfx")
-      capture = params["Body"].scan(/cfx(\d+)/)
+    if params['Body'].include?('cfx')
+      capture = params['Body'].scan(/cfx(\d+)/)
       user = User.find_by_id(capture[0][0])
 
-      client = Requestor.find_by_phone_number(params["From"].gsub("+",""))
+      client = Requestor.find_by_phone_number(params['From'].delete('+'))
       send_company_name_to_client(client.phone_number, user.company_name)
 
       send_client_phone_number_to_user(user.phone_number, client.phone_number)
 
     else
-      vendor = User.find_by_phone_number(params["From"].gsub("+",""))
+      vendor = User.find_by_phone_number(params['From'].delete('+'))
       to = vendor.service_requests.last.requestor
-      twilio_sms_proxy(to.phone_number, params["Body"], vendor.id.to_s)
+      twilio_sms_proxy(to.phone_number, params['Body'], vendor.id.to_s)
     end
   end
+
   def new
     assistant = IBMWatson::AssistantV1.new(
       username: ENV['WATSON_USERNAME'],
@@ -83,35 +84,35 @@ class ConversationsController < ApplicationController
       client.messages.create(
         from: Rails.application.credentials.twilio[:number],
         to: number,
-        body: 'Hey Plumber! 🚽 Can you help with this issue?' + dialog.join("\n") +" Please respond  with available times and minimum service fees"
+        body: 'Hey Plumber! 🚽 Can you help with this issue?' + dialog.join("\n") + ' Please respond  with available times and minimum service fees'
       )
     end
   end
+
   def twilio_sms_proxy(number, body, acceptance_code)
-
     client = Twilio::REST::Client.new
-      client.messages.create(
-        from: Rails.application.credentials.twilio[:number],
-        to: number,
-        body: 'Please respond with the following code to accept this vendor: cfx' + acceptance_code + " /n"+ body
-      )
+    client.messages.create(
+      from: Rails.application.credentials.twilio[:number],
+      to: number,
+      body: 'Please respond with the following code to accept this vendor: cfx' + acceptance_code + " \n" + body
+    )
   end
+
   def send_company_name_to_client(number, company)
-
     client = Twilio::REST::Client.new
-      client.messages.create(
-        from: Rails.application.credentials.twilio[:number],
-        to: number,
-        body: 'Thank you for choosing ' + company + '. You will be contacted shortly by a member of their staff to further assist you.  Thank you for using ChatFix!'
-      )
+    client.messages.create(
+      from: Rails.application.credentials.twilio[:number],
+      to: number,
+      body: 'Thank you for choosing ' + company + '. You will be contacted shortly by a member of their staff to further assist you.  Thank you for using ChatFix!'
+    )
   end
-  def send_client_phone_number_to_user(number, client_phone)
 
+  def send_client_phone_number_to_user(number, client_phone)
     client = Twilio::REST::Client.new
-      client.messages.create(
-        from: Rails.application.credentials.twilio[:number],
-        to: number,
-        body: 'Please contact client at ' + client_phone + ' within 30 minutes to schedule appointment'
-      )
+    client.messages.create(
+      from: Rails.application.credentials.twilio[:number],
+      to: number,
+      body: 'Please contact client at ' + client_phone + ' within 30 minutes to schedule appointment'
+    )
   end
 end

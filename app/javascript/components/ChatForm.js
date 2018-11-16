@@ -9,15 +9,23 @@ class ChatForm extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   handleSubmit() {
     this.props.sendMessage({text: this.state.inputText})
+    this.setState({inputText: ""})
+  }
+
+  handleKeyDown(e) {
+    if (e.keyCode === 13) {
+      this.handleSubmit()
+    }
   }
 
   render() {
     return (<div className="clearfix chat-input">
-      <input className="input-text-field" type="text" value={this.state.inputText} onChange={(event) => {
+      <input className="input-text-field" type="text" value={this.state.inputText} onKeyDown={this.handleKeyDown} onChange={(event) => {
           this.setState({inputText: event.target.value})
         }}/> {/* <div class="input-group input-group-lg">
         <div class="input-group-prepend">
