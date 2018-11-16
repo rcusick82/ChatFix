@@ -189,6 +189,35 @@ div:not(.user-speech-bubble).speech-bubble:after {
   // flex-direction: column;
 }
 
+.watson-logo {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+
+}
+
+.built  {
+position: absolute;
+bottom: 60px;
+right: 20%;
+color: white;
+font-family: 'Open Sans', sans-serif;
+}
+
+.powered_by {
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  font-size: 12px;
+  line-height: 3px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+.built-with {
+  font-size: 16px;
+}
+
 .main-nav-list {
   padding-left: 30px;
 }
