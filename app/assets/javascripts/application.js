@@ -10,7 +10,48 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+  // $('#welcomeModal').load('new', function() {
+  //   $('#welcomeModal').show('show')
+  // })
+
+  $(document).scrollTop($(document).height());
+
+  // var height = 0;
+  // $('conversation-container').each(function(i, value) {
+  //   height += parseInt($(this).height());
+  // });
+  //
+  // height += '';
+  //
+  // $('conversation-container').animate({scrollTop: height});
+
+  $(window).load(function() {
+    $('#welcomeModal').modal('show');
+  });
+
+  $(".chat-form").on("ajax:success", function(e, data, status, xhr) {
+
+    $(".chat-display").empty()
+    var responseObj = JSON.parse(xhr.responseText)
+    // console.log(responseObj.title, responseObj.options)
+
+    var question = responseObj.title;
+    var options = responseObj.options;
+
+    $(".chat-display").append(`<div class="chat-q">${question}</div>`)
+
+    options.forEach(function(option) {
+      $(".chat-display").append(`<div class="chat-o">${option}</div>`)
+    })
+
+  })
+})
