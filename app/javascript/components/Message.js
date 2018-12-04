@@ -12,7 +12,9 @@ class Messages extends React.Component {
     } else if (generic.length > 0 && generic[0].response_type == "option") {
       options = generic[0].options.map((option, index) => <Option key={index} option={option}/>)
     }
-    return (<div className="speech-bubble clearfix">
+    return (<div className={`speech-bubble clearfix ${this.props.isLast
+        ? 'last-item'
+        : ''}`}>
       {
         this.props.watsonData.output.generic[1]
           ? <div>
