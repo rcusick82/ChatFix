@@ -1,0 +1,56 @@
+<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title text-center">Welcome To ChatFix!</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+          <!-- <span aria-hidden="true">&times;</span> -->
+        <!-- </button> -->
+      </div>
+      <div class="modal-image">
+
+      </div>
+      <div class="modal-body">
+        <p class="p-welcome-modal">Vendor availbility and pricing without making a single phone call</p>
+          <p class="p-welcome-modal">Save time and money by answering a few simple questions</p>
+        <p class="p-welcome-modal">I will connect you instantly to local vendors</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Let's Get Started</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="twilioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ChatFix</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-text">Please enter your phone number and zip code and I will connect you to available plumbers in your area right away.</div>
+          <div class="modal-body-center">
+        <%= form_tag ('/conversations/generate_sms') do %>
+          <%= text_field_tag :phone_number, nil, placeholder: 'Phone Number'  %><br />
+          <%= text_field_tag :zip_code, nil, placeholder: 'Zip Code'  %><br />
+          <%= hidden_field_tag :chat_items %>
+          <%= submit_tag "Submit" %>
+        <% end %>
+      </div>
+      </div>
+        <%= @transcript %>
+    </div>
+  </div>
+</div>
+
+<div class="chat-container d-inline-block align-middle">
+  <%= react_component('Chat', watsonData: @response) %>
+
+</div>
