@@ -3,12 +3,15 @@ class ConversationsController < ApplicationController
   def generate_sms
     dialog = JSON.parse(params[:chat_items]).compact
     numbers = Location.find_by_zip_code(params[:zip_code]).users.pluck(:phone_number)
+    byebug
     broadcast_to_plumbers(numbers, dialog)
     requestor = Requestor.find_or_create_by(phone_number: params[:phone_number])
     service_request = ServiceRequest.new
     service_request.requestor = requestor
     service_request.users = Location.find_by_zip_code(params[:zip_code]).users
     service_request.save
+
+    redirect_to json: { success: true }
   end
 
   def receive
